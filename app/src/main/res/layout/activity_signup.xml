@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_margin="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back_btn"
+        android:background="@color/colorWhite"
+        />
+
+    <EditText
+        android:id="@+id/signupNick_input"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_edittext"
+        android:text="닉네임을 입력해주세요"
+        android:textColor="@color/colorBlack"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="100dp"
+        />
+
+    <EditText
+        android:id="@+id/signupId_input"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_edittext"
+        android:text="아이디를 입력해주세요"
+        android:textColor="@color/colorBlack"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="15dp"
+        />
+    <EditText
+        android:id="@+id/signupPassword_input"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_edittext"
+        android:text="비밀번호를 입력해주세요"
+        android:textColor="@color/colorBlack"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="8dp"
+        />
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="영어/ 숫자 / 특수문자 중 2가지 이상을 사용해주세요."
+        android:textColor="@color/colorBlue"
+        android:layout_marginBottom="15dp"
+        android:paddingLeft="15dp"
+        />
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_edittext"
+        android:text="비밀번호 확인"
+        android:textColor="@color/colorBlack"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="15dp"
+        />
+
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="다음"
+        android:textSize="15dp"
+        android:textColor="@color/colorBlack"
+        android:layout_gravity="center"
+        android:background="@null"
+        />
+
+
+
+</LinearLayout>

@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         var next_btn : Button = findViewById(R.id.next_btn)
         next_btn.setOnClickListener {
             firebaseAuth = FirebaseAuth.getInstance()
-            var emeil = id_input.text.toString().trim()
+            var emeil = email_input.text.toString().trim()
             var password = password_input.text.toString().trim()
             login(emeil, password)
         }

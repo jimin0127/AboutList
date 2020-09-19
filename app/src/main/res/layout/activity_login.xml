@@ -17,11 +17,11 @@
         android:src="@drawable/textlogo1" />
 
     <EditText
-        android:id="@+id/id_input"
+        android:id="@+id/email_input"
         android:layout_width="350dp"
         android:layout_height="35dp"
         android:layout_gravity="center"
-        android:hint="아이디를 입력하세요"
+        android:hint="이메일을 입력하세요"
         android:inputType="textEmailAddress"
         android:textColorHint="#8C8C8C"
         android:layout_marginBottom="15dp"

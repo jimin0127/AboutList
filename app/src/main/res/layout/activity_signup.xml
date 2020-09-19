@@ -18,14 +18,15 @@
         />
 
     <EditText
-        android:id="@+id/signupNick_input"
+        android:id="@+id/signup_email_input"
         android:layout_width="350dp"
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:background="@drawable/round_edittext"
         android:inputType="textEmailAddress"
-        android:text="메일을 입력해주세요"
+        android:hint="이메일을 입력해주세요"
         android:textColor="@color/colorBlack"
+        android:textColorHint="#8C8C8C"
         android:paddingLeft="15dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="100dp"
@@ -37,8 +38,9 @@
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:background="@drawable/round_edittext"
-        android:text="아이디를 입력해주세요"
+        android:hint="아이디를 입력해주세요"
         android:textColor="@color/colorBlack"
+        android:textColorHint="#8C8C8C"
         android:paddingLeft="15dp"
         android:layout_marginBottom="15dp"
         />
@@ -49,29 +51,43 @@
         android:layout_gravity="center"
         android:inputType="textPassword"
         android:background="@drawable/round_edittext"
-        android:text="비밀번호를 입력해주세요"
+        android:hint="비밀번호를 입력해주세요"
+        android:textColorHint="#8C8C8C"
         android:textColor="@color/colorBlack"
         android:paddingLeft="15dp"
         android:layout_marginBottom="8dp"
         />
     <TextView
+        android:id="@+id/message_text"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="영어/ 숫자 / 특수문자 중 2가지 이상을 사용해주세요."
+        android:text="영어/ 숫자 / 특수문자 중 2가지 이상을 사용하여 8~15자 비밀번호를 만들어주세요"
         android:textColor="@color/colorBlue"
         android:layout_marginBottom="15dp"
         android:paddingLeft="15dp"
         />
     <EditText
+        android:id="@+id/checkPassword_input"
         android:layout_width="350dp"
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:background="@drawable/round_edittext"
-        android:text="비밀번호 확인"
+        android:hint="비밀번호 확인"
+        android:inputType="textPassword"
+        android:textColorHint="#8C8C8C"
         android:textColor="@color/colorBlack"
         android:paddingLeft="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:id="@+id/passwordErorr_text"
+        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:paddingLeft="15dp"
         />
 
     <Button
@@ -84,7 +100,5 @@
         android:layout_gravity="center"
         android:background="@null"
         />
-
-
 
 </LinearLayout>

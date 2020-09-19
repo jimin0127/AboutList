@@ -3,17 +3,12 @@ package com.example.aboutlist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import android.widget.Toast
 import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_signup.*
 
 
 class SignupActivity : AppCompatActivity() {
-
-
-
-
     private var firebaseAuth : FirebaseAuth? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +30,15 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
+    //회원가입 
     private fun createEamil(email : String, password : String) {
+        //firebase에 사용자 추가하는 메소드
         firebaseAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
-                if(it.isSuccessful) {
+                if(it.isSuccessful) { //추가에 성공하면
                     val user = firebaseAuth?.currentUser
                     Toast.makeText(this, "Authentication success", Toast.LENGTH_SHORT).show()
-                } else {
+                } else { //추가에 실패하면
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
             }

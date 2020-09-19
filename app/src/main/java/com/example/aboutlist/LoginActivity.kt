@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
             val database = FirebaseDatabase.getInstance()
             val myRef = database.getReference("message")
 
-            myRef.setValue("Hello, World!")
+            myRef.setValue("Hello, 수연 ")
         }
     }
 }

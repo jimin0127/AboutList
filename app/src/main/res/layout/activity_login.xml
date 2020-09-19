@@ -22,8 +22,10 @@
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:hint="아이디를 입력하세요"
+        android:inputType="textEmailAddress"
         android:textColorHint="#8C8C8C"
         android:layout_marginBottom="15dp"
+        android:textColor="@color/colorBlack"
         android:paddingLeft="15dp"
         android:background="@drawable/round_edittext"
         />
@@ -34,6 +36,7 @@
         android:layout_gravity="center"
         android:inputType="textPassword"
         android:hint="비밀번호를 입력하세요"
+        android:textColor="@color/colorBlack"
         android:textColorHint="#8C8C8C"
         android:layout_marginBottom="10dp"
         android:paddingLeft="15dp"

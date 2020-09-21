@@ -27,7 +27,7 @@
         android:layout_marginBottom="15dp"
         android:textColor="@color/colorBlack"
         android:paddingLeft="15dp"
-        android:background="@drawable/round_edittext"
+        android:background="@drawable/round_background"
         />
     <EditText
         android:id="@+id/password_input"
@@ -40,7 +40,7 @@
         android:textColorHint="#8C8C8C"
         android:layout_marginBottom="10dp"
         android:paddingLeft="15dp"
-        android:background="@drawable/round_edittext"
+        android:background="@drawable/round_background"
         />
 
 
@@ -107,7 +107,7 @@
         android:layout_height="35dp"
         android:paddingLeft="30dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/round_edittext"
+        android:background="@drawable/round_background"
         android:text="Google로 로그인"
         android:textAllCaps="false"
         android:textColor="@color/colorBlack"
@@ -118,7 +118,7 @@
         android:layout_width="350dp"
         android:layout_height="35dp"
         android:paddingLeft="30dp"
-        android:background="@drawable/round_edittext"
+        android:background="@drawable/round_background"
         android:text="Facebook으로 로그인"
         android:textAllCaps="false"
         android:textColor="@color/colorBlack"

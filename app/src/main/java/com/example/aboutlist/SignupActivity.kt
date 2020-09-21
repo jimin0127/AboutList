@@ -2,9 +2,9 @@ package com.example.aboutlist
 
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.*
@@ -44,19 +44,13 @@ class SignupActivity : AppCompatActivity() {
                     
                     //dialog 생성하기
                     var dialog = AlertDialog.Builder(this)
-                    dialog.setMessage("회원가입을 완료했습니다. ")
-                    
-                    var dialogListener = object : DialogInterface.OnClickListener {
-                        override fun onClick(p0: DialogInterface?, which: Int) {
-                            when(which) {
-                                //확인버튼 이벤트
-                                DialogInterface.BUTTON_POSITIVE ->
-                                    finish()
-                            }
-                        }
+                    var v1 = layoutInflater.inflate(R.layout.dialog_custom, null)
+                    var okButton = v1.findViewById<View>(R.id.OkButton)
+                    okButton.setOnClickListener {
+                        finish()
                     }
-                    dialog.setPositiveButton("확인", dialogListener)
-                    dialog.show() //dialog 띄우기
+                    dialog.setView(v1)
+                        .show()
 
                 } else { //추가에 실패하면
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()

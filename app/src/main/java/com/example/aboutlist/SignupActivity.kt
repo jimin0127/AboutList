@@ -34,13 +34,12 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
-    //회원가입 
+    //회원가입 계정 생성
     private fun createEmail(email : String, password : String) {
         //firebase에 사용자 추가하는 메소드
         firebaseAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if(it.isSuccessful) { //추가에 성공하면
-                    val user = firebaseAuth?.currentUser
                     
                     //dialog 생성하기
                     var dialog = AlertDialog.Builder(this)
@@ -52,6 +51,10 @@ class SignupActivity : AppCompatActivity() {
                     dialog.setView(v1)
                         .show()
 
+                    val user = firebaseAuth?.currentUser //현재 사용자
+                    val uid = user?.uid
+                    FirebaseDB(uid, signupId_input.text.toString().trim())
+
                 } else { //추가에 실패하면
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
@@ -59,7 +62,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-    //회원가입
+    //회원가입 계정 생성 가능 확인
     private fun createAccount (email : String, password: String, checkPassword_input : String){
 
         //비밀번호와 비밀번호 확인이 다르면

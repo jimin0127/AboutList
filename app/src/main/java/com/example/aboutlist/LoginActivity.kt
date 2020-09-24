@@ -40,9 +40,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { take->
                 if(take.isSuccessful) { //로그인에 성공하면
                     Toast.makeText(this, "signInWithEmail success.", Toast.LENGTH_SHORT).show()
-                    val user = firebaseAuth?.currentUser //현재 사용자
-                    val uid = user?.uid
-                    val Firebase : Any = Firebase("id", "닉네임")
+                    startActivity(Intent(this, ExplainActivity::class.java))
+
                 } else { //로그인에 실패하면
                     Toast.makeText(this, "signInWithEmail failed. ", Toast.LENGTH_SHORT).show()
                 }

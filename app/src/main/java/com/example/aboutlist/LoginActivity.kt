@@ -27,16 +27,16 @@ class LoginActivity : AppCompatActivity() {
         var next_btn : Button = findViewById(R.id.next_btn)
         next_btn.setOnClickListener {
             firebaseAuth = FirebaseAuth.getInstance()
-            var emeil = id_input.text.toString().trim()
+            var email = email_input.text.toString().trim()
             var password = password_input.text.toString().trim()
-            login(emeil, password)
+            login(email, password)
         }
     }
 
     //로그인
-    private fun login(emeil : String, password : String) {
+    private fun login(email : String, password : String) {
         //사용자 로그인
-        firebaseAuth!!.signInWithEmailAndPassword(emeil, password)
+        firebaseAuth!!.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { take->
                 if(take.isSuccessful) { //로그인에 성공하면
                     Toast.makeText(this, "signInWithEmail success.", Toast.LENGTH_SHORT).show()

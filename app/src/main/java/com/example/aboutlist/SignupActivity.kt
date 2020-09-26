@@ -2,9 +2,9 @@ package com.example.aboutlist
 
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.*
@@ -35,29 +35,26 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
-    //회원가입 
+    //회원가입 계정 생성
     private fun createEmail(email : String, password : String) {
         //firebase에 사용자 추가하는 메소드
         firebaseAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if(it.isSuccessful) { //추가에 성공하면
-                    val user = firebaseAuth?.currentUser
                     
                     //dialog 생성하기
                     var dialog = AlertDialog.Builder(this)
-                    dialog.setMessage("회원가입을 완료했습니다. ")
-                    
-                    var dialogListener = object : DialogInterface.OnClickListener {
-                        override fun onClick(p0: DialogInterface?, which: Int) {
-                            when(which) {
-                                //확인버튼 이벤트
-                                DialogInterface.BUTTON_POSITIVE ->
-                                    finish()
-                            }
-                        }
+                    var v1 = layoutInflater.inflate(R.layout.dialog_custom, null)
+                    var okButton = v1.findViewById<View>(R.id.OkButton)
+                    okButton.setOnClickListener {
+                        finish()
                     }
-                    dialog.setPositiveButton("확인", dialogListener)
-                    dialog.show() //dialog 띄우기
+                    dialog.setView(v1)
+                        .show()
+
+                    val user = firebaseAuth?.currentUser //현재 사용자
+                    val uid = user?.uid
+                    FirebaseDB(uid, signupId_input.text.toString().trim())
 
                 } else { //추가에 실패하면
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
@@ -66,7 +63,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
 
-    //회원가입
+    //회원가입 계정 생성 가능 확인
     private fun createAccount (email : String, password: String, checkPassword_input : String){
 
         //비밀번호와 비밀번호 확인이 다르면

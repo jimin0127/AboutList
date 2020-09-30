@@ -9,7 +9,29 @@
     android:background="@color/colorWhite"
     tools:context=".AddList">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:background="@drawable/round_background"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_background"
+            />
+        <EditText
+            android:id="@+id/check"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@null"/>
+    </LinearLayout>
+
+
 </LinearLayout>

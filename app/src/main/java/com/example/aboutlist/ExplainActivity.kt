@@ -15,8 +15,6 @@ class ExplainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_explain)
 
-        var goMain_btn : Button = findViewById(R.id.goMain_btn)
-
 
 
         vp = findViewById(R.id.vp) as ViewPager
@@ -24,11 +22,6 @@ class ExplainActivity : AppCompatActivity() {
 
 
         vp.adapter = ExplainViewAdapter(this)
-
-        goMain_btn?.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
 
     }
 

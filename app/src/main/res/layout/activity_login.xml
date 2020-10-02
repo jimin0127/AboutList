@@ -29,6 +29,7 @@
         android:paddingLeft="15dp"
         android:background="@drawable/round_background"
         />
+
     <EditText
         android:id="@+id/password_input"
         android:layout_width="350dp"

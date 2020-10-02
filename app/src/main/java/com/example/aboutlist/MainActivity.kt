@@ -11,14 +11,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)
         startActivity(Intent(this, LoginActivity::class.java))
 
-        add = findViewById(R.id.add_list)
+        //add = findViewById(R.id.add_list)
 
-        add.setOnClickListener{
-            val intent = Intent(this, AddList::class.java)
-        }
+//        add.setOnClickListener{
+//            val intent = Intent(this, AddList::class.java)
+//        }
 
     }
 }

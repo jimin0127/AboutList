@@ -9,13 +9,5 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         />
-    <Button
-        android:id="@+id/goMain_btn"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="시작하기"
-        />
 
 </RelativeLayout>

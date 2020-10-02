@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.viewpager.widget.PagerAdapter
@@ -21,7 +22,8 @@ class ExplainViewAdapter(private val c : Context) : PagerAdapter() {
         R.drawable.explain1,
         R.drawable.explain2,
         R.drawable.explain3,
-        R.drawable.explain4
+        R.drawable.explain4,
+        R.drawable.explain5
     )
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -43,7 +45,7 @@ class ExplainViewAdapter(private val c : Context) : PagerAdapter() {
         
         //새로운 뷰의 iv라는 아이디 값을 가진 ImageView 참조
         val iv = v.findViewById<View>(R.id.iv) as ImageView
-        var btn = v.findViewById<View>(R.id.goMain_btn)
+
 
 
         //배열의 담긴 이미중 position 값에 해당되는 이미지를 설정한다. 
@@ -52,8 +54,10 @@ class ExplainViewAdapter(private val c : Context) : PagerAdapter() {
         if(position == 3) {
 
         } else {
-            btn.setVisibility(View.INVISIBLE)
-            btn.setEnabled(false)
+
+            var btn : Button?= v.findViewById(R.id.goMain_btn)
+            btn?.setVisibility(View.INVISIBLE)
+            btn?.setEnabled(false)
         }
 
         //ViewPager에 만들어낸 view에 더함
@@ -67,5 +71,8 @@ class ExplainViewAdapter(private val c : Context) : PagerAdapter() {
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.invalidate()
     }
+
+
+
 
 }

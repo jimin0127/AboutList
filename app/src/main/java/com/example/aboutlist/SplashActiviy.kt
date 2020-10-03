@@ -10,7 +10,7 @@ class SplashActiviy : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         SystemClock.sleep(1200)
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

@@ -38,6 +38,7 @@
             />
     </LinearLayout>
     <EditText
+        android:id="@+id/title_input"
         android:layout_width="350dp"
         android:layout_height="35dp"
         android:background="@drawable/round_background"

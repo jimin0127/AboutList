@@ -1,6 +1,7 @@
 package com.example.aboutlist
 
 import android.content.Intent
+import android.media.FaceDetector
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -30,6 +31,16 @@ class LoginActivity : AppCompatActivity() {
             var email = email_input.text.toString().trim()
             var password = password_input.text.toString().trim()
             login(email, password)
+        }
+
+        var GooleLogin_btn : Button = findViewById(R.id.loginAsGoogle_btn)
+        GooleLogin_btn.setOnClickListener {
+            startActivity(Intent(this, GoogleLogIn::class.java))
+        }
+
+        var FacebookLogin_btn : Button = findViewById(R.id.loginAsFacebook_btn)
+        FacebookLogin_btn.setOnClickListener {
+            startActivity(Intent(this, LoginFacebook::class.java))
         }
     }
 

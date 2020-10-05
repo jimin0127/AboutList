@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_signup.*
 
@@ -44,7 +43,7 @@ class SignupActivity : AppCompatActivity() {
                     
                     //dialog 생성하기
                     var dialog = AlertDialog.Builder(this)
-                    var v1 = layoutInflater.inflate(R.layout.dialog_custom, null)
+                    var v1 = layoutInflater.inflate(R.layout.signup_dialog_custom, null)
                     var okButton = v1.findViewById<View>(R.id.OkButton)
                     okButton.setOnClickListener {
                         finish()

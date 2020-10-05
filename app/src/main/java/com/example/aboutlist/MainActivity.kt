@@ -13,11 +13,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //add = findViewById(R.id.add_list)
+        add = findViewById(R.id.add_list)
 
-//        add.setOnClickListener{
-//            val intent = Intent(this, AddList::class.java)
-//        }
+        add.setOnClickListener{
+            val intent = Intent(this, AddList::class.java)
+            startActivity(intent)
+        }
 
     }
 }

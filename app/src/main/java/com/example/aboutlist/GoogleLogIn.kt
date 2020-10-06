@@ -41,8 +41,6 @@ class GoogleLogIn : AppCompatActivity(), View.OnClickListener {
 
         signIn()
 
-
-
     }
 
     // onStart. 유저가 앱에 이미 구글 로그인을 했는지 확인
@@ -83,6 +81,10 @@ class GoogleLogIn : AppCompatActivity(), View.OnClickListener {
                 if (task.isSuccessful) {
                     Log.w("LoginActivity", "firebaseAuthWithGoogle 성공", task.exception)
                     toMainActivity(firebaseAuth?.currentUser)
+                    var user = firebaseAuth?.currentUser
+
+                    var uid = user?.uid
+                    FirebaseDB(uid, user?.displayName)
                 } else {
                     Log.w("LoginActivity", "firebaseAuthWithGoogle 실패", task.exception)
                     Toast.makeText(this,"로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show()

@@ -3,6 +3,7 @@
     package="com.example.aboutlist">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ExplainActivity"/>
         <activity android:name=".AddList"/>
+        <activity android:name=".GoogleLogIn"/>
         <activity
             android:name=".SplashActiviy"
             android:theme="@style/SplashTheme">

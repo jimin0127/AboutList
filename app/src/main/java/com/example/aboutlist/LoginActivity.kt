@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.google.android.gms.common.SignInButton
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -33,15 +34,16 @@ class LoginActivity : AppCompatActivity() {
             login(email, password)
         }
 
-//        var GooleLogin_btn : Button = findViewById(R.id.loginAsGoogle_btn)
-//        GooleLogin_btn.setOnClickListener {
-//            startActivity(Intent(this, GoogleLogIn::class.java))
-//        }
-//
-//        var FacebookLogin_btn : Button = findViewById(R.id.loginAsFacebook_btn)
-//        FacebookLogin_btn.setOnClickListener {
-//            startActivity(Intent(this, LoginFacebook::class.java))
-//        }
+        var GooleLogin_btn : SignInButton = findViewById(R.id.loginAsGoogle_btn)
+        GooleLogin_btn.setOnClickListener {
+            startActivity(Intent(this, GoogleLogIn::class.java))
+        }
+
+
+        var FacebookLogin_btn : Button = findViewById(R.id.loginAsFacebook_btn)
+        FacebookLogin_btn.setOnClickListener {
+            startActivity(Intent(this, LoginFacebook::class.java))
+        }
     }
 
     //로그인

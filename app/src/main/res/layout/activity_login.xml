@@ -114,6 +114,7 @@
         android:textColor="@color/colorBlack">
     </com.google.android.gms.common.SignInButton>
 
+
     <Button
         android:id="@+id/loginAsFacebook_btn"
         android:layout_width="350dp"

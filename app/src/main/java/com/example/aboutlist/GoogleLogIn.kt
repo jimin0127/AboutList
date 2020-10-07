@@ -124,7 +124,7 @@ class GoogleLogIn : AppCompatActivity(), View.OnClickListener {
     }
 
 }
-class SignOut {
+class G_SignOut {
     private lateinit var firebaseAuth: FirebaseAuth
     //google client
     private lateinit var googleSignInClient: GoogleSignInClient

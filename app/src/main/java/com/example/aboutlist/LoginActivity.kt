@@ -1,7 +1,6 @@
 package com.example.aboutlist
 
 import android.content.Intent
-import android.media.FaceDetector
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -42,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
         var FacebookLogin_btn : Button = findViewById(R.id.loginAsFacebook_btn)
         FacebookLogin_btn.setOnClickListener {
-            startActivity(Intent(this, LoginFacebook::class.java))
+            startActivity(Intent(this, FacebookLogIn::class.java))
         }
     }
 

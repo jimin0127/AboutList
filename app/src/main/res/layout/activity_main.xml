@@ -28,13 +28,17 @@
             android:layout_gravity="center"
             android:src="@drawable/textlogo1" />
 
-        <Button
-            android:id="@+id/logout_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그아웃" />
     </LinearLayout>
-
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="구글로그아웃" />
+    <Button
+        android:id="@+id/facebook_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="페북 로그 아웃"/>
     <Button
         android:id="@+id/add_list"
         android:layout_width="350dp"

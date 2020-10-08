@@ -20,17 +20,13 @@ class FacebookLogIn : AppCompatActivity(){
     lateinit var auth: FirebaseAuth
     lateinit var callbackManager: CallbackManager
     override fun onCreate(savedInstanceState: Bundle?) {
+        setContentView(R.layout.activity_login)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
         callbackManager = CallbackManager.Factory.create()
 
         facebookLogin()
-
-//        facebookLogoutBtn.setOnClickListener {
-//            signOut()
-//        }
     }
 
 
@@ -43,6 +39,8 @@ class FacebookLogIn : AppCompatActivity(){
                 //페이스북 로그인 성공
                 handleFacebookAccessToken(result.accessToken)
                 Toast.makeText(this@FacebookLogIn, "로그인 성공", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@FacebookLogIn, MainActivity::class.java))
+                finish()
             }
             override fun onCancel() {
                 //페이스북 로그인 취소
@@ -79,7 +77,6 @@ class FacebookLogIn : AppCompatActivity(){
                         // If sign in fails, display a message to the user.
                         Log.w("FacebookLogIn", "signInWithCredential:failure", task.exception)
                         Toast.makeText(this@FacebookLogIn, "Authentication failed.", Toast.LENGTH_SHORT).show()
-
                         updateUI(null)
                     }
                 }
@@ -96,15 +93,18 @@ class FacebookLogIn : AppCompatActivity(){
         if (user != null) {
             Toast.makeText(this@FacebookLogIn, user.displayName, Toast.LENGTH_SHORT).show()
             Toast.makeText(this@FacebookLogIn, user.photoUrl.toString(), Toast.LENGTH_SHORT).show()
+
+
         } else {
-            Toast.makeText(this@FacebookLogIn, "로그인 실패", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+            Log.d("로그", "로그인 실패")
         }
     }
 }
 
 class F_SignOut {
     lateinit var auth: FirebaseAuth
-    constructor(firebaseAuth: FirebaseAuth) {
+    constructor(firebaseAuth : FirebaseAuth) {
         this.auth = firebaseAuth
         try {
             auth.signOut()

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AboutList</string>
-    <string name="facebook_app_id">2847611215480348</string> <string name="fb_login_protocol_scheme">fb2847611215480348</string>
+    <string name="facebook_app_id">2847611215480348</string>
+    <string name="fb_login_protocol_scheme">fb2847611215480348</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

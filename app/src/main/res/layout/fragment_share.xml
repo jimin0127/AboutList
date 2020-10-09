@@ -1,35 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/share_fragment"
     android:layout_width="300dp"
     android:layout_height="200dp"
     android:layout_gravity="center"
-    android:orientation="vertical"
-    android:padding= "50dp"
-    android:background="@drawable/round_dialog"
-    >
-    <TextView
+    tools:context=".ShareFragment"
+    android:background="@drawable/round_background">
 
+    <TextView
         android:id="@+id/sharetitle_text"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:textColor="@color/colorBlack"
         android:textSize="15dp"
-        android:layout_marginBottom="50dp"
-        />
+        android:layout_margin="50dp"/>
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/OkButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity= "bottom"
         android:text="확인"
         android:textColor="@color/colorBlack"
         android:background="@drawable/round_background"/>
-
-
-</LinearLayout>
+</FrameLayout>

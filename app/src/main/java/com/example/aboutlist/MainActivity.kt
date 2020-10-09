@@ -25,8 +25,16 @@ class MainActivity : AppCompatActivity() {
                 .requestEmail()
                 .build()
 
-            SignOut(FirebaseAuth.getInstance(), GoogleSignIn.getClient(this, gso))
+            G_SignOut(FirebaseAuth.getInstance(), GoogleSignIn.getClient(this, gso))
             startActivity(Intent(this, LoginActivity::class.java))
+        }
+
+        val facebooklogout_btn = findViewById<Button>(R.id.facebook_logout)
+        facebooklogout_btn.setOnClickListener {
+            finish()
+            startActivity(Intent(this, LoginActivity::class.java))
+            F_SignOut(FirebaseAuth.getInstance())
+
         }
 
         add.setOnClickListener{

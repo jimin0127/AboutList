@@ -1,57 +1,37 @@
 package com.example.aboutlist
 
-import android.R
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import kotlinx.android.synthetic.main.share_dialog_custom.*
+import com.facebook.share.Share
+import androidx.fragment.app.FragmentManager as FragmentManager
 
 
 class AddList : AppCompatActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_addlist)
-//
-//
-//        val share_btn = findViewById<View>(R.id.share_btn)
-//        Log.d("sharetitle_text 테스트", "${sharetitle_text}")
-//        val back_btn = findViewById<ImageButton>(R.id.addBack_btn)
-//
-//        back_btn.setOnClickListener {
-//            Log.d("백버튼", "${back_btn}")
-//            finish()
-//        }
-//
-//        var share_title = "수연이랑"
-//
-//        //var title = findViewById<EditText>(R.id.title_input)
-//
-//        share_btn.setOnClickListener {
-//
-//            val fm: FragmentManager = supportFragmentManager
-//            val fragmentTransaction: FragmentTransaction = fm.beginTransaction()
-//            //fragmentTransaction.add(R.id.x)
-//            //fragmentTransaction.commit()
-//            //val gn = findFalgmentById()
-//            //var temp = title.getText().toString()
-//
-//            if (sharetitle_text == null) {
-//                Log.d("널", "null")
-//            }
-//            sharetitle_text.text = temp + "을(를) 공유합니다. "
-//
-//
-//
-//            var dialog = android.app.AlertDialog.Builder(this)
-//            //var v1 = layoutInflater.inflate(R.layout.share_dialog_custom, null)
-//
-//            //dialog.setView(v1)
-//             //   .show()
-//        }
-//    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_addlist)
+
+        val back_btn = findViewById<ImageButton>(R.id.addBack_btn)
+        back_btn.setOnClickListener {
+            Log.d("백버튼", "${back_btn}")
+            finish()
+        }
+
+        val share_btn = findViewById<ImageButton>(R.id.share_btn)
+        val title_input = findViewById<EditText>(R.id.title_input)
+        val list1 = findViewById<EditText>(R.id.check1)
+        val list2 = findViewById<EditText>(R.id.check2)
+        val list3 = findViewById<EditText>(R.id.check3)
+
+        share_btn.setOnClickListener {
+            ShareFragment
+                .newInstance(title_input.text.toString(), list1.text.toString(), list2.text.toString(), list3.text.toString())
+                .show(supportFragmentManager, ShareFragment.TAG)
+        }
+    }
 }

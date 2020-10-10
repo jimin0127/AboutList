@@ -1,43 +1,37 @@
 package com.example.aboutlist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import com.example.aboutlist.R.id.sharetitle_text
-import kotlinx.android.synthetic.main.activity_addlist.*
-import kotlinx.android.synthetic.main.share_dialog_custom.*
+import android.widget.ImageButton
+
+import androidx.appcompat.app.AppCompatActivity
+import com.facebook.share.Share
+import androidx.fragment.app.FragmentManager as FragmentManager
+
 
 class AddList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addlist)
 
+        val back_btn = findViewById<ImageButton>(R.id.addBack_btn)
+        back_btn.setOnClickListener {
+            Log.d("백버튼", "${back_btn}")
+            finish()
+        }
 
-        val share_btn = findViewById<View>(R.id.share_btn)
-        var sharetitleText = findViewById<TextView>(R.id.sharetitle_text)
-
-        var share_title = "수연이랑"
-
-        var title = findViewById<EditText>(R.id.title_input)
+        val share_btn = findViewById<ImageButton>(R.id.share_btn)
+        val title_input = findViewById<EditText>(R.id.title_input)
+        val list1 = findViewById<EditText>(R.id.check1)
+        val list2 = findViewById<EditText>(R.id.check2)
+        val list3 = findViewById<EditText>(R.id.check3)
 
         share_btn.setOnClickListener {
-            var temp = title.text.toString()
-
-            if (sharetitleText == null) {
-                Log.d("n    ull", "null")
-            }
-            sharetitleText.setText(temp + "을(를) 공유합니다. ")
-
-
-
-            var dialog = android.app.AlertDialog.Builder(this)
-            var v1 = layoutInflater.inflate(R.layout.share_dialog_custom, null)
-
-            dialog.setView(v1)
-                .show()
+            ShareFragment
+                .newInstance(title_input.text.toString(), list1.text.toString(), list2.text.toString(), list3.text.toString())
+                .show(supportFragmentManager, ShareFragment.TAG)
         }
     }
 }

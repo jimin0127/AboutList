@@ -1,4 +1,4 @@
-package com.example.aboutlist
+package com.example.aboutlist.LogIn_LogOut
 
 
 import android.app.AlertDialog
@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.example.aboutlist.R
+import com.example.aboutlist.sampledata.FirebaseDB
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_signup.*
 
@@ -53,7 +55,10 @@ class SignupActivity : AppCompatActivity() {
 
                     val user = firebaseAuth?.currentUser //현재 사용자
                     val uid = user?.uid
-                    FirebaseDB(uid, signupId_input.text.toString().trim())
+                    FirebaseDB(
+                        uid,
+                        signupId_input.text.toString().trim()
+                    )
 
                 } else { //추가에 실패하면
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()

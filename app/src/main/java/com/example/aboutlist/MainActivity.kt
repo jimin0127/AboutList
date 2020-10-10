@@ -4,10 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.aboutlist.LogIn_LogOut.F_SignOut
+import com.example.aboutlist.LogIn_LogOut.G_SignOut
+import com.example.aboutlist.LogIn_LogOut.LoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +27,10 @@ class MainActivity : AppCompatActivity() {
                 .requestEmail()
                 .build()
 
-            G_SignOut(FirebaseAuth.getInstance(), GoogleSignIn.getClient(this, gso))
+            G_SignOut(
+                FirebaseAuth.getInstance(),
+                GoogleSignIn.getClient(this, gso)
+            )
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
@@ -38,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         add.setOnClickListener{
-            val intent = Intent(this, AddList::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, AddList::class.java))
+
         }
 
     }

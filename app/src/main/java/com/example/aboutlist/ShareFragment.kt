@@ -1,18 +1,15 @@
 package com.example.aboutlist
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
+import com.example.aboutlist.sampledata.FirebaseDB
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_share.view.*
-import java.awt.font.TextAttribute
 import kotlin.jvm.JvmStatic as JvmStatic
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,10 +72,15 @@ class ShareFragment : DialogFragment() {
             var user = firebaseAuth.currentUser
             var uid = user?.uid
 
-            Log.d("온 클릭 이스너", "확인버튼 클릭")
-            FirebaseDB(uid, title, check1, check2, check3)
+            FirebaseDB(
+                uid,
+                title,
+                check1,
+                check2,
+                check3
+            )
 
-
+            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
         }
         sharetitle.setText(title)
         return view

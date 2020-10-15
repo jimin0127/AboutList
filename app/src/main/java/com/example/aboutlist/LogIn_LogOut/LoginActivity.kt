@@ -1,11 +1,11 @@
-package com.example.aboutlist
+package com.example.aboutlist.LogIn_LogOut
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.gms.common.SignInButton
+import com.example.aboutlist.*
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
         var goSingup_btn : Button = findViewById(R.id.goSignup_btn)
         goSingup_btn.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
-
         }
 
         var next_btn : Button = findViewById(R.id.next_btn)
@@ -36,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         var GooleLogin_btn : Button = findViewById(R.id.loginAsGoogle_btn)
         GooleLogin_btn.setOnClickListener {
             startActivity(Intent(this, GoogleLogIn::class.java))
+            finish()
         }
 
 

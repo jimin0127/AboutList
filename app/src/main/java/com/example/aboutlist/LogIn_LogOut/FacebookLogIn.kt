@@ -1,10 +1,12 @@
-package com.example.aboutlist
+package com.example.aboutlist.LogIn_LogOut
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.aboutlist.MainActivity
+import com.example.aboutlist.R
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback

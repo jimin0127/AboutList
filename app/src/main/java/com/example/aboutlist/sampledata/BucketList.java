@@ -1,4 +1,4 @@
-package com.example.aboutlist;
+package com.example.aboutlist.sampledata;
 
 import java.util.HashMap;
 import java.util.Map;

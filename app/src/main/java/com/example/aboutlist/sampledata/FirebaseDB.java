@@ -1,6 +1,5 @@
-package com.example.aboutlist;
+package com.example.aboutlist.sampledata;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

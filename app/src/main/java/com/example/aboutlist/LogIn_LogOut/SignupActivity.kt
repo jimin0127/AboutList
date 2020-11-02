@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.example.aboutlist.R
-import com.example.aboutlist.sampledata.FirebaseDB
+import com.example.aboutlist.sampledata.FireStoreDB
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_signup.*
 
@@ -29,10 +29,11 @@ class SignupActivity : AppCompatActivity() {
             //firebase Authentication 연결
             firebaseAuth = FirebaseAuth.getInstance()
 
-            var signupNick_input = signup_email_input.text.toString().trim()
+            var signupNickname_input = signup_nickname_input.text.toString().trim()
+            var signupEmail_input = signup_email_input.text.toString().trim()
             var signupPassword_input = signupPassword_input.text.toString().trim()
             var checkPassword_input = checkPassword_input.text.toString().trim()
-            createAccount(signupNick_input, signupPassword_input, checkPassword_input)
+            createAccount(signupEmail_input, signupPassword_input, checkPassword_input)
         }
     }
 
@@ -55,8 +56,11 @@ class SignupActivity : AppCompatActivity() {
 
                     val user = firebaseAuth?.currentUser //현재 사용자
                     val uid = user?.uid
-                    FirebaseDB(
-                        uid,
+
+                    FireStoreDB(
+                        uid.toString(),
+                        signup_nickname_input.text.toString().trim(),
+                        signup_email_input.text.toString().trim(),
                         signupId_input.text.toString().trim()
                     )
 

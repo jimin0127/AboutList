@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.aboutlist.LogIn_LogOut.F_SignOut
 import com.example.aboutlist.LogIn_LogOut.G_SignOut
 import com.example.aboutlist.LogIn_LogOut.LoginActivity
+import com.example.aboutlist.sampledata.FireStoreDB
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         add.setOnClickListener{
             startActivity(Intent(this, AddList::class.java))
-
         }
 
     }

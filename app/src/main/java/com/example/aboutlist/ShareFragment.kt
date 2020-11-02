@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import com.example.aboutlist.sampledata.FirebaseDB
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_share.view.*
 import kotlin.jvm.JvmStatic as JvmStatic
@@ -72,19 +71,18 @@ class ShareFragment : DialogFragment() {
             var user = firebaseAuth.currentUser
             var uid = user?.uid
 
-            FirebaseDB(
-                uid,
-                title,
-                check1,
-                check2,
-                check3
-            )
+            //FirebaseDB(
+              //  uid,
+               // title,
+               // check1,
+               // check2,
+               // check3
+           // )
 
             activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
         }
         sharetitle.setText(title)
         return view
     }
-
 
 }

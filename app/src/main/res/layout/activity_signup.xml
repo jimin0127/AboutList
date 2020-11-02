@@ -18,6 +18,20 @@
         />
 
     <EditText
+        android:id="@+id/signup_nickname_input"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_background"
+        android:hint="닉네임을 입력해주세요"
+        android:textColor="@color/colorBlack"
+        android:textColorHint="#8C8C8C"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="100dp"
+        />
+
+    <EditText
         android:id="@+id/signup_email_input"
         android:layout_width="350dp"
         android:layout_height="35dp"
@@ -29,7 +43,7 @@
         android:textColorHint="#8C8C8C"
         android:paddingLeft="15dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="100dp"
+
         />
 
     <EditText

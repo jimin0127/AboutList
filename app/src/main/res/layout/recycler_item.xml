@@ -3,7 +3,7 @@
     <data>
         <variable
             name="LayoutData"
-            type="com.example.aboutlist.LayoutData" />
+            type="com.example.aboutlist.sampledata.LayoutData" />
     </data>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="30dp"
+        android:checked="@{LayoutData.check}"
         android:background="@drawable/round_background"
         />
     <EditText

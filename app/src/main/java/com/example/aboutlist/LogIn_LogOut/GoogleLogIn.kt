@@ -6,9 +6,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.aboutlist.sampledata.FirebaseDB
 import com.example.aboutlist.MainActivity
 import com.example.aboutlist.R
+import com.example.aboutlist.sampledata.FireStoreDB
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -87,9 +87,13 @@ class GoogleLogIn : AppCompatActivity(), View.OnClickListener {
                     var user = firebaseAuth?.currentUser
 
                     var uid = user?.uid
-                    FirebaseDB(
-                        uid,
-                        user?.displayName
+
+                    //uid : String, nick_name : String, email : String, id : String
+                    FireStoreDB(
+                        uid.toString(),
+                        user?.displayName.toString(),
+                        user?.email.toString(),
+                        null
                     )
                 } else {
                     Log.w("LoginActivity", "firebaseAuthWithGoogle 실패", task.exception)

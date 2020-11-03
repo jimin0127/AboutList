@@ -1,4 +1,4 @@
-package com.example.aboutlist
+package com.example.aboutlist.sampledata
 
 import android.widget.CheckBox
 import android.widget.EditText

@@ -16,7 +16,7 @@
 
         <ImageButton
             android:id="@+id/addBack_btn"
-            android:layout_width="33dp"
+            android:layout_width="42dp"
             android:layout_height="36dp"
             android:layout_margin="25dp"
             android:background="@color/colorWhite"
@@ -25,17 +25,17 @@
         <ImageView
             android:layout_width="224dp"
             android:layout_height="43dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:src="@drawable/textlogo1" />
 
         <ImageButton
             android:id="@+id/share_btn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/share_btn"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:background="@null"
-            />
+            android:src="@drawable/share_btn" />
     </LinearLayout>
 
     <LinearLayout

@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_appicon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".ReadDatabaseActivity"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -40,6 +40,7 @@
         <activity android:name=".LogIn_LogOut.LoginActivity" />
         <activity android:name=".ExplainActivity" />
         <activity android:name=".AddList" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".LogIn_LogOut.GoogleLogIn" />
         <activity
             android:name=".SplashActiviy"
@@ -50,7 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

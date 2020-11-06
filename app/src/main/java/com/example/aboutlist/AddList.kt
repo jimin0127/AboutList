@@ -46,7 +46,6 @@ class AddList : AppCompatActivity() {
             var layoutList = arrayListOf<LayoutData>()
             for (document in result) {
                 if (document.id == "Buckets") {
-                    Log.d("title", document.data.get("title").toString())
                     for (data in document.data) {
                         if (data.key != "title") {
                             var dataValueString: String = data.value.toString()
@@ -67,6 +66,10 @@ class AddList : AppCompatActivity() {
                             layoutList.add(LayoutData(check.toBoolean(), list))
 
                             Log.d("layoutListValue", layoutList.toString())
+
+                        } else{
+                            title_input.setText(data.value.toString())
+
 
                         }
                     }
@@ -131,6 +134,12 @@ class AddList : AppCompatActivity() {
             title_input.text.toString(),
             list
         )
+        mRecyclerView.apply {
+            layoutManager = LinearLayoutManager(this@AddList)
+            adapter = ListAdapter(list) {
+                Toast.makeText(this@AddList, "$it", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
 
@@ -153,10 +162,13 @@ class ListAdapter(val items : List<LayoutData>, private val clickListener : (lis
         check.setOnCheckedChangeListener(object  : CompoundButton.OnCheckedChangeListener {
             override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
                 if(p0?.isChecked!!) {
-                    list[viewHolder.position].check = false
+                    list[viewHolder.position].check = true
+                    Log.d("setOnCheckedChangeListener", list[viewHolder.position].toString())
                 } else {
                     Log.d("check", "해제됨")
-                    list[viewHolder.position].check = true
+                    list[viewHolder.position].check = false
+                    Log.d("setOnCheckedChangeListener", list[viewHolder.position].toString())
+
                 }
             }
 

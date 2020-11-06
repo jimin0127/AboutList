@@ -42,40 +42,4 @@ class FireStoreDB {
         }
     }
 
-    fun read(uid : String, documentName : String) {
-        firestore = FirebaseFirestore.getInstance()
-
-
-        firestore?.collection(uid)?.get()?.addOnSuccessListener { result ->
-            var layoutList = arrayListOf<LayoutData>()
-            for (document in result) {
-                if (document.id == "Buckets") {
-                    Log.d("title", document.data.get("title").toString())
-                    for (data in document.data) {
-                        if (data.key != "title") {
-                            var dataValueString: String = data.value.toString()
-                            var dataValueList = dataValueString.split(',')
-
-                            var first = dataValueList[0].substring(1)
-                            var firstValue = first.split('=')
-
-                            var secondLength = dataValueList[1].length
-                            var second = dataValueList[1].substring(1, secondLength - 1)
-                            var secondValue = second.split('=')
-
-                            var check = firstValue[1]
-                            var list = secondValue[1]
-                            Log.d("check", check)
-                            Log.d("list", list)
-
-                            layoutList.add(LayoutData(check.toBoolean(), list))
-
-                            Log.d("layoutListValue", layoutList.toString())
-
-                        }
-                    }
-                }
-            }
-        }
-    }
 }

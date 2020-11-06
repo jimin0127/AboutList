@@ -1,4 +1,4 @@
-package com.example.gaboza
+package com.example.aboutlist
 
 import android.content.Context
 import android.content.Intent
@@ -7,14 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.example.aboutlist.AddList
-import com.example.aboutlist.R
 
-class Adapter(models: List<Model>, context: Context) :
+class Adapter(private val models: List<Model>, private val context: Context) :
     PagerAdapter() {
-    private val models: List<Model>
     private var layoutInflater: LayoutInflater? = null
-    private val context: Context
     override fun getCount(): Int {
         return models.size
     }
@@ -26,14 +22,13 @@ class Adapter(models: List<Model>, context: Context) :
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = LayoutInflater.from(context)
         val layoutInflater : LayoutInflater = layoutInflater as LayoutInflater
-        val view: View = layoutInflater.inflate(R.layout.item_bookmark, container, false)
+        val view = layoutInflater.inflate(R.layout.item_bookmark, container, false)
         val title: TextView
+        var desc: TextView
         title = view.findViewById(R.id.title)
-        title.setText(models[position].getTitle())
-
+        title.text = models[position].title
         view.setOnClickListener {
             val intent = Intent(context, AddList::class.java)
-            //intent.putExtra("param", models.get(position).getTitle());
             //intent.putExtra("param", models.get(position).getTitle());
             context.startActivity(intent)
         }
@@ -43,10 +38,5 @@ class Adapter(models: List<Model>, context: Context) :
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
-    }
-
-    init {
-        this.models = models
-        this.context = context
     }
 }

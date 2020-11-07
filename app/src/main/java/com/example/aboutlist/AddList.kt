@@ -1,14 +1,12 @@
 package com.example.aboutlist
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Toast
-
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +16,9 @@ import com.example.aboutlist.sampledata.LayoutData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_addlist.*
+import kotlinx.android.synthetic.main.recycler_item.view.*
+
+var list = arrayListOf<LayoutData>()
 
 
 class AddList : AppCompatActivity() {
@@ -27,7 +28,6 @@ class AddList : AppCompatActivity() {
     var uid = user?.uid
     var firestore = FirebaseFirestore.getInstance()
 
-    var list = arrayListOf<LayoutData>()
     var fireStore = FireStoreDB()
 
 
@@ -40,11 +40,12 @@ class AddList : AppCompatActivity() {
         val add_btn = findViewById<Button>(R.id.add_btn)
         val edit_query_btn = findViewById<Button>(R.id.edit_query_btn)
 
+
+        //데이터 읽기
         firestore?.collection(uid.toString())?.get()?.addOnSuccessListener { result ->
             var layoutList = arrayListOf<LayoutData>()
             for (document in result) {
                 if (document.id == "Buckets") {
-                    Log.d("title", document.data.get("title").toString())
                     for (data in document.data) {
                         if (data.key != "title") {
                             var dataValueString: String = data.value.toString()
@@ -66,6 +67,10 @@ class AddList : AppCompatActivity() {
 
                             Log.d("layoutListValue", layoutList.toString())
 
+                        } else{
+                            title_input.setText(data.value.toString())
+
+
                         }
                     }
                 }
@@ -80,8 +85,6 @@ class AddList : AppCompatActivity() {
             }
 
         }
-
-        Log.d("List", list.toString())
 
         add_btn.setOnClickListener {
             addList()
@@ -131,6 +134,12 @@ class AddList : AppCompatActivity() {
             title_input.text.toString(),
             list
         )
+        mRecyclerView.apply {
+            layoutManager = LinearLayoutManager(this@AddList)
+            adapter = ListAdapter(list) {
+                Toast.makeText(this@AddList, "$it", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
 
@@ -139,11 +148,46 @@ class ListAdapter(val items : List<LayoutData>, private val clickListener : (lis
 
     class ListViewHolder(val binding : RecyclerItemBinding) : RecyclerView.ViewHolder(binding.root)
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_item, parent, false)
 
         val viewHolder = ListViewHolder(RecyclerItemBinding.bind(view))
+
+        var check = view.findViewById<CheckBox>(R.id.checkbox)
+        var list_input = view.findViewById<EditText>(R.id.list_input)
+
+        @Suppress("DEPRECATION")
+        check.setOnCheckedChangeListener(object  : CompoundButton.OnCheckedChangeListener {
+            override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+                if(p0?.isChecked!!) {
+                    list[viewHolder.position].check = true
+                    Log.d("setOnCheckedChangeListener", list[viewHolder.position].toString())
+                } else {
+                    Log.d("check", "해제됨")
+                    list[viewHolder.position].check = false
+                    Log.d("setOnCheckedChangeListener", list[viewHolder.position].toString())
+
+                }
+            }
+
+        })
+
+        list_input.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            @Suppress("DEPRECATION")
+            override fun onTextChanged(p0: CharSequence?, start: Int, count: Int, after: Int) {
+                list[viewHolder.position].list = p0.toString()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+        })
 
         view.setOnClickListener {
             clickListener.invoke(items[viewHolder.adapterPosition])
@@ -151,10 +195,16 @@ class ListAdapter(val items : List<LayoutData>, private val clickListener : (lis
         return viewHolder
     }
 
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
+
 
     override fun getItemCount() = items.size
 
+
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.binding.layoutData = items[position]
+
     }
 }
